@@ -41,7 +41,7 @@ Then put this is your `.emacs` file to trigger the alias:
 (setq cider-clojure-cli-global-options "-A:cider-clj")
 ```
 
-The middleware assumes there is a file one level up from your project directory (which is likely your home directory) which should look like this:
+The middleware assumes there is a file one level up from your project directory (which is likely your home directory) named `gtp-config.edn` which should look like this:
 
 ```clojure
 {:openai-api-key "OPEN_AI_KEY"
