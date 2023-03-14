@@ -2,6 +2,8 @@
 
 This library is just a proof of concept, shared in case other people want to do something similar and need a reference project. It does work, but I can't provide assistance with installation (I barely understand cider/nrepl/clojure/emacs interop myself) and can't fix any bug you may encounter. Also, be aware that some of your repl entries will now be sent to a third party, with the associated security risks.
 
+This project requires you to have an OpenAI API key (see https://openai.com/blog/openai-api)
+
 ## What it looke like
 
 ```
