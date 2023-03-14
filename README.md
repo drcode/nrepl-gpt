@@ -32,7 +32,7 @@ If you want to use this in your project, put something like the following in you
 ```clojure
 {:deps    {io.github.drcode/nrepl-gpt {:git/sha "47606175189f80fe7e7d76caf833e50cf95ea619"}}
  :aliases {:cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.27.2"}}
-                       :main-opts  ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware,,nrepl-gpt.nrepl-gpt/wrap-nrepl-gpt]"]}}}
+                       :main-opts  ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware,nrepl-gpt.nrepl-gpt/wrap-nrepl-gpt]"]}}}
 ```
 
 Then put this is your `.emacs` file to trigger the alias:
@@ -56,4 +56,4 @@ Now you should be able to launch emacs, run `cider-jack-in` on your project, and
 
 nRepl/Cider support multiple clojure expressions to be entered into the repl at once. For my usage (and likely yours) I would only ever pass in a single clojure expression in the repl.
 
-The nrepl-gpt middleware takes advantage of this to forward all repl entries that contain more than one expression (i.e. that "look like a sentence") to chatgpt and then prints the answer in the repl.
+The nrepl-gpt middleware takes advantage of this to forward all repl entries that contain more than one expression (i.e. that "look like a sentence") to chatgpt and then prints the response in the repl.
