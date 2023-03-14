@@ -4,7 +4,7 @@ This library is just a proof of concept, shared in case other people want to do 
 
 This project requires you to have an OpenAI API key (see https://openai.com/blog/openai-api)
 
-## What it looke like
+## What it looks like
 
 ```
 user> (+ 1 2)
