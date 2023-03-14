@@ -30,7 +30,7 @@ keywords:
 If you want to use this in your project, put something like the following in your `deps.edn` file:
 
 ```clojure
-{:deps    {io.github.drcode/nrepl-gpt {:git/sha "47606175189f80fe7e7d76caf833e50cf95ea619"}}
+{:deps    {io.github.drcode/nrepl-gpt {:git/sha "bd4bdb02add5da94a3fee3b34348930ff1f1de74"}}
  :aliases {:cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.27.2"}}
                        :main-opts  ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware,nrepl-gpt.nrepl-gpt/wrap-nrepl-gpt]"]}}}
 ```
