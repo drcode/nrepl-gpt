@@ -8,7 +8,7 @@
             [clojure.java.shell :as sh]
             [clojure.data.json :as js]))
 
-(def config (edn/read-string (slurp "../gtp-config.edn")))
+(def config (edn/read-string (slurp "../gpt-config.edn")))
 
 (defn shell
   ([s ignore-exit-code]
