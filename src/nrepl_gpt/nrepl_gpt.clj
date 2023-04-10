@@ -6,7 +6,8 @@
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.java.shell :as sh]
-            [clojure.data.json :as js]))
+            [clojure.data.json :as js]
+            [edamame.core :as ed]))
 
 (def config (edn/read-string (slurp "../gpt-config.edn")))
 
@@ -23,11 +24,7 @@
   (get-in (js/read-str (shell (str "curl https://api.openai.com/v1/chat/completions -H \"Authorization: Bearer " (:openai-api-key config) "\" -H \"Content-Type: application/json\" -d '{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"system\", \"content\":\"" (:system-prompt config) "\"},{\"role\": \"user\", \"content\": " (st/replace (pr-str prompt) "'" "`") "}]}'")) :key-fn keyword) [:choices 0 :message :content]))
 
 (defn single-expr? [s]
-  (let [reader (java.io.PushbackReader. (io/reader (.getBytes s)))
-        expr1  (edn/read {:eof nil} reader)
-        expr2  (edn/read {:eof nil} reader)]
-    (and (not (nil? expr1))
-         (nil? expr2))))
+  (<= (count (ed/parse-string-all s {:all true})) 1))
 
 (defn wrap-nrepl-gpt [handler]
   (fn [msg]
